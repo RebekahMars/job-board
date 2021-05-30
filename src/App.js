@@ -1,16 +1,16 @@
 import './App.css';
-import JobBoard from "./components/jobBoard"
-import FetchData from"./components/fetchData"
+import React from 'react';
+import JobBoard from "./components/jobBoard";
 
 import {useState, useEffect} from "react";
 
 function App() {
   
-  const[jobBoard, setJobBoard] = useState([])
+  //const[jobBoard, setJobBoard] = useState()
 
   return (
     <div className="App">
-      <FetchData jobBoard={jobBoard}></FetchData>
+      <JobBoard></JobBoard>
     </div>
   );
 }

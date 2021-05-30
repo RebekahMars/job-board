@@ -1,17 +1,20 @@
+import React, {useEffect, useState} from "react";
 import FetchData from "./fetchData";
-import jwt from "jsonwebtoken";
-import {useEffect, useState} from "react";
 
 
 const JobBoard = () =>{
 
+        let data = FetchData();
+
+
     return (
-        <div>{}</div>
-       /*  <div>
-            {jobBoardData.map((job) => (
-                <div>{job.data.name}</div>
-            ))}
-        </div> //map array to <Job>, make each element--> like list data using map */
+     <div>
+         {data.map((job) => {
+
+             {console.log(job)}
+         return <div>{job.name}</div>
+         })}
+        </div>
 		
     )
 }
