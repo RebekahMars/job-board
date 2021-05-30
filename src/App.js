@@ -1,11 +1,13 @@
 import './App.css';
 import JobBoard from "./components/jobBoard"
+import FetchData from"./components/fetchData"
 
-//import {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 
 function App() {
   
-  //const[jobData, setJobData] = useState("");
+  FetchData();
+  const[jobBoard, setJobBoard] = useState([])
 
   return (
     <div className="App">

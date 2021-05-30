@@ -9,17 +9,19 @@ const getToken = () => jwt.sign({
 
 // Feel free to call a state setter instead of a console log
 const FetchData = () => {
-    
+	const [jobData, setJobData] = useState([]);
+	
 	useEffect(() => {
-		fetch("<https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=metal&limit=50", {
+		const fetch = () => {
+			fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=metal&limit=50", {
 		  headers: {
 		    "Content-Type": "application/json",      
 		    authorization: `Bearer ${getToken()}`,
 		  },
-		}).then(res => res.json()).then(res => console.log(res))
-	}, [])
-
-	return null;
+		}).then(res => res.json()).then(res => setJobData(res.data))
+	}
+	},[]);
+	return[{jobData, setJobData}];
 }
 
 export default FetchData;
