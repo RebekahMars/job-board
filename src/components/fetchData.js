@@ -12,16 +12,26 @@ const FetchData = () => {
 	const [jobData, setJobData] = useState([]);
 	
 	useEffect(() => {
-		const fetch = () => {
 			fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=metal&limit=50", {
 		  headers: {
 		    "Content-Type": "application/json",      
 		    authorization: `Bearer ${getToken()}`,
 		  },
 		}).then(res => res.json()).then(res => setJobData(res.data))
-	}
 	},[]);
-	return[{jobData, setJobData}];
+
+	return null;
+	/* 	<>
+		<h1>Jobs</h1>
+		<ul>
+			{jobData.data.map(({id, jobName})=> (
+				<li key={id}>
+					{jobData}
+				</li>
+			))}
+		</ul>
+		</>
+	) */
 }
 
 export default FetchData;

@@ -6,12 +6,11 @@ import {useState, useEffect} from "react";
 
 function App() {
   
-  FetchData();
   const[jobBoard, setJobBoard] = useState([])
 
   return (
     <div className="App">
-      <JobBoard></JobBoard>
+      <FetchData jobBoard={jobBoard}></FetchData>
     </div>
   );
 }
