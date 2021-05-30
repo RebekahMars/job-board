@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import JobPage from "./components/jobPage";
 
-import {useState, useEffect} from "react";
+//import {useState, useEffect} from "react";
 
 function App() {
   
