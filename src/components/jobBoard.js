@@ -14,25 +14,12 @@ const JobBoard = (props) =>{
         })()
     },[props.searchJobTerm]);
 
-    useEffect(()=>{
-        (async ()=>{
-           let skillResponse = await fetchSkillData(props.searchSkillTerm);
-           setJobSkills(skillResponse);
-           console.log(jobSkills);
-        })()
-    },[props.searchSkillTerm]);
-
     return (
     <>
     <div>
         {jobData.map((job, i) => {
             return <div key={i}>{job.name}</div>
             })}
-    </div>
-    <div>
-        {jobSkills.map((skill, i)=> {
-            return <div key={i}>{skill.name}</div>
-        })}
     </div>
     </>
 		
