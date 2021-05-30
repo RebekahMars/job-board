@@ -1,18 +1,21 @@
 import React, {useEffect, useState} from "react";
-import FetchData from "./fetchData";
+import fetchData from "./fetchData";
 
 
-const JobBoard = () =>{
+const JobBoard = (props) =>{
+    const [data, setData] = useState([]);
 
-        let data = FetchData();
-
+    useEffect(()=>{
+        (async ()=>{
+           let response = await fetchData(props.searchTerm);
+           setData(response);
+        })()
+    },[props.searchTerm]);
 
     return (
      <div>
-         {data.map((job) => {
-
-             {console.log(job)}
-         return <div>{job.name}</div>
+         {data.map((job, i) => {
+         return <div key={i}>{job.name}</div>
          })}
         </div>
 		

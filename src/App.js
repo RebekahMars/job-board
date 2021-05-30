@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import JobBoard from "./components/jobBoard";
+import JobPage from "./components/jobPage";
 
 import {useState, useEffect} from "react";
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <JobBoard></JobBoard>
+      <JobPage></JobPage>
     </div>
   );
 }
