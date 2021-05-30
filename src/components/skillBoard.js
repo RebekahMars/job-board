@@ -8,7 +8,6 @@ const SkillBoard = (props) => {
         (async ()=>{
            let skillResponse = await fetchSkillData(props.searchSkillTerm);
            setJobSkills(skillResponse);
-           console.log(jobSkills);
         })()
     },[props.searchSkillTerm]);
 
