@@ -11,7 +11,6 @@ const JobBoard = (props) =>{
            setData(response);
         })()
     },[props.searchTerm]);
-
     return (
      <div>
          {data.map((job, i) => {
