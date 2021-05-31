@@ -11,11 +11,19 @@ const JobBoard = (props) =>{
         })()
     },[props.searchJobTerm]);
 
+    const filterSelected = () => {
+        return jobData.filter(job => job.selected);
+    }
+    const toggleSelect = job => {
+        job.selected = !job.selected;
+        filterSelected();
+    }
+
     return (
     <>
     <div>
-        {jobData.map((job, i) => {
-            return <div key={i}>{job.name}</div>
+        {jobData.map((job, index) => {
+            return <div key={index} onClick={()=>toggleSelect(job)}>{job.name}</div>
             })}
     </div>
     </>
