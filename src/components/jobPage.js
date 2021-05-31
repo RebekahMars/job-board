@@ -8,7 +8,6 @@ const JobPage = () => {
         setSearchJobTerm(event.target.value);
     }
 
-   
     return(
         <>
         <div>
