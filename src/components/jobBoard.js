@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from "react";
 import fetchJobData from "./fetchJobData";
+//import styled from 'styled-components';
+
+/* const Container = styled.div`
+${props => props.selected === "light-grey"}
+`  */
 
 const JobBoard = (props) =>{
     const [jobData, setJobData] = useState([]);
@@ -11,19 +16,21 @@ const JobBoard = (props) =>{
         })()
     },[props.searchJobTerm]);
 
-    const filterSelected = () => {
+    const filterSelectedJobs = () => {
         return jobData.filter(job => job.selected);
     }
-    const toggleSelect = job => {
+
+    const toggleSelectedJobs = job => {
         job.selected = !job.selected;
-        filterSelected();
+        filterSelectedJobs();
+
     }
 
     return (
     <>
     <div>
         {jobData.map((job, index) => {
-            return <div key={index} onClick={()=>toggleSelect(job)}>{job.name}</div>
+            return <div key={index} onClick={()=>toggleSelectedJobs(job)}>{job.name}</div>
             })}
     </div>
     </>
