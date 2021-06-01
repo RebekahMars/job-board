@@ -1,7 +1,30 @@
+html{
+    background-image: url("./components/star-wars-backgrounds-26.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .App{
+    color:white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 25px;
     text-align: center;
+}
+.app-title{
+    width: 50%;
+    margin: 20px auto;
+    font-size: 35px;
+    text-align: center;
+    background-color: lightgray;
+}
+input{
+    border-radius: 5px;
+    background-color: grey;
+}
+label{
+    font-size: 20px;
+}
+p{
+    font-size:20px;
 }

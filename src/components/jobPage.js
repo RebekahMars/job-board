@@ -32,14 +32,14 @@ const JobPage = () => {
     return(
         <>
         <div>
-            <h1>Job Board</h1>
+            <h1>Job Search</h1>
             <label> Search Jobs:
             <input type="text" onChange={(event)=> setSearchJobTerm(event.target.value)}/>
             </label>
             <JobBoard jobData={jobData} selectedJobs={selectedJobs} setSelectedJobs={setSelectedJobs} setJobCount={setJobCount}/>  
         </div>
         <div>
-            <h1>Skill Board</h1>
+            <h1>Skill Search</h1>
             <label>Search Skills:
             <input type="text" onChange={(event)=> setSearchSkillTerm(event.target.value)}/>
             </label>
