@@ -15,24 +15,6 @@ const JobPage = () => {
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [jobCount, setJobCount] = useState([]);
 
-    /**
-    | * Order of events.
-    | * --------------
-    | * useEffect func fires in jobPage. sets JobData based on input from user.
-    | * jobData is passed to JobBoard, through the form of props.
-    | * jobData is being mapped in jobBoard
-    | * if() a mapped div is clicked. The toggleSelected jobs func is called with a job
-    | * 
-    | * How do we make a copy of the array we need to save.
-    | * 1) with the job the was clicked
-    | * 2) with the array of currently selected jobs
-    | * 
-    | * Make the copy of selected jobs.
-    | * set a new copy of selectedjobs with the new copy of both the old state and the new job
-    | * 
-    | * The darkest night comes before the brightest dawn yo lol-Bookah
-     */
-
     useEffect(()=>{
         (async ()=>{
            let jobResponse = await fetchJobData(searchJobTerm);
@@ -47,18 +29,6 @@ const JobPage = () => {
         })()
     },[searchSkillTerm]);
 
-   /*  const searchSkillFunction = event => {
-        setSearchSkillTerm(event.target.value);
-    } */
-
-   /*  const filterSelectedJobs = () => {
-        return jobData.filter(job => job.selected);
-    } */
-
-/*     const searchJobFunction = event => {
-        setSearchJobTerm(event.target.value);
-    }
- */
     return(
         <>
         <div>
