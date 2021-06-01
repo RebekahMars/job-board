@@ -13,11 +13,18 @@ const JobPage = () => {
     const [jobSkills, setJobSkills] = useState([]);
     const [selectedJobs, setSelectedJobs] = useState([]);
     const [selectedSkills, setSelectedSkills] = useState([]);
-    const [jobCount, setJobCount] = useState([]);
 
     useEffect(()=>{
         (async ()=>{
            let jobResponse = await fetchJobData(searchJobTerm);
+           if(isGrowing(jobData.length, jobResponse.length))
+           {
+               document.getElementById("jobCount").style.color="green";
+           }
+           else
+           {
+               document.getElementById("jobCount").style.color ="red";
+           }
            setJobData(jobResponse);
         })()
     },[searchJobTerm]);
@@ -25,9 +32,29 @@ const JobPage = () => {
     useEffect(()=>{
         (async ()=>{
            let skillResponse = await fetchSkillData(searchSkillTerm);
+           if(isGrowing(jobSkills.length, skillResponse.length))
+           {
+               document.getElementById("skillCount").style.color="green";
+           }
+           else
+           {
+               document.getElementById("skillCount").style.color ="red";
+           }
            setJobSkills(skillResponse);
         })()
     },[searchSkillTerm]);
+
+    const isGrowing = (oldCount, newCount) => {
+        if(oldCount > newCount)
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+  
+    }
 
     return(
         <>
@@ -36,7 +63,7 @@ const JobPage = () => {
             <label> Search Jobs:
             <input type="text" onChange={(event)=> setSearchJobTerm(event.target.value)}/>
             </label>
-            <JobBoard jobData={jobData} selectedJobs={selectedJobs} setSelectedJobs={setSelectedJobs} setJobCount={setJobCount}/>  
+            <JobBoard jobData={jobData} selectedJobs={selectedJobs} setSelectedJobs={setSelectedJobs}/>  
         </div>
         <div>
             <h1>Skill Search</h1>
@@ -46,7 +73,7 @@ const JobPage = () => {
             <SkillBoard jobSkills ={jobSkills} selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills}/>
         </div>
         <div>
-            <HiringPage data={selectedJobs} count={jobCount}/>
+            <HiringPage data={selectedJobs} count={jobData.length}/>
         </div>
         <div>
             <SkillList skills={selectedSkills}/>
