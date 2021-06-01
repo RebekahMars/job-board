@@ -12,7 +12,6 @@ const SkillBoard = (props) => {
     },[props.searchSkillTerm]); */
 
     const toggleSelectedSkills = skill => {
-        console.log(skill);
         let skills = [...props.selectedSkills, skill];
         props.setSelectedSkills(skills);
     }

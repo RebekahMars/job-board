@@ -23,8 +23,9 @@ const JobBoard = (props) =>{
  */
     const toggleSelectedJobs = job => {
         let jobs = [...props.selectedJobs, job];
+        let total = props.selectedJobs.length;
         props.setSelectedJobs(jobs);
-
+        props.setJobCount(total);
     }
 
     return (

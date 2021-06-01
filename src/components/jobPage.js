@@ -13,6 +13,7 @@ const JobPage = () => {
     const [jobSkills, setJobSkills] = useState([]);
     const [selectedJobs, setSelectedJobs] = useState([]);
     const [selectedSkills, setSelectedSkills] = useState([]);
+    const [jobCount, setJobCount] = useState([]);
 
     /**
     | * Order of events.
@@ -65,7 +66,7 @@ const JobPage = () => {
             <label> Search Jobs:
             <input type="text" onChange={(event)=> setSearchJobTerm(event.target.value)}/>
             </label>
-            <JobBoard jobData={jobData} selectedJobs={selectedJobs} setSelectedJobs={setSelectedJobs}/>  
+            <JobBoard jobData={jobData} selectedJobs={selectedJobs} setSelectedJobs={setSelectedJobs} setJobCount={setJobCount}/>  
         </div>
         <div>
             <h1>Skill Board</h1>
@@ -75,7 +76,7 @@ const JobPage = () => {
             <SkillBoard jobSkills ={jobSkills} selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills}/>
         </div>
         <div>
-            <HiringPage data={selectedJobs}/>
+            <HiringPage data={selectedJobs} count={jobCount}/>
         </div>
         <div>
             <SkillList skills={selectedSkills}/>
