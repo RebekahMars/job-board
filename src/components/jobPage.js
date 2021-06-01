@@ -27,7 +27,7 @@ const JobPage = () => {
            }
            setJobData(jobResponse);
         })()
-    },[searchJobTerm]);
+    },[searchJobTerm, jobData.length]);
 
     useEffect(()=>{
         (async ()=>{
@@ -42,7 +42,7 @@ const JobPage = () => {
            }
            setJobSkills(skillResponse);
         })()
-    },[searchSkillTerm]);
+    },[searchSkillTerm, jobSkills.length]);
 
     const isGrowing = (oldCount, newCount) => {
         if(oldCount > newCount)
