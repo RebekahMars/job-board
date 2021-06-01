@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import fetchJobData from "./fetchJobData";
+import React from "react"; 
+//import fetchJobData from "./fetchJobData";
 //import styled from 'styled-components';
 
 /* const Container = styled.div`
@@ -7,7 +7,8 @@ ${props => props.selected === "light-grey"}
 `  */
 
 const JobBoard = (props) =>{
-    const [jobData, setJobData] = useState([]);
+   
+    /* const [jobData, setJobData] = useState([]);
 
     useEffect(()=>{
         (async ()=>{
@@ -19,17 +20,17 @@ const JobBoard = (props) =>{
     const filterSelectedJobs = () => {
         return jobData.filter(job => job.selected);
     }
-
+ */
     const toggleSelectedJobs = job => {
-        job.selected = !job.selected;
-        filterSelectedJobs();
+        let jobs = [...props.selectedJobs, job];
+        props.setSelectedJobs(jobs);
 
     }
 
     return (
     <>
     <div>
-        {jobData.map((job, index) => {
+        {props.jobData && props.jobData.map((job, index) => {
             return <div key={index} onClick={()=>toggleSelectedJobs(job)}>{job.name}</div>
             })}
     </div>

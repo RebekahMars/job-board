@@ -1,16 +1,14 @@
-import React,{useState, useEffect}from "react";
-import JobBoard from "./jobBoard";
+import React from "react";
 
-const HiringPage = ({jobData}) => {
-    const[selectedJobs, setSelectedJobs] = useState(); //come back to this later
-    //setSelectedJobs to be === to the selectedJobs from JobBoard
-    //update dynamically
-    
+
+const HiringPage = (props) => { 
     return (
         <>
         <div>
             <h1>In-Demand Jobs</h1>
-            <JobBoard selectedJobs={selectedJobs} setSelectedJobs={jobData}/>
+            {props.data && props.data.map((selected, index) => {
+                return <div key={index}>{selected.name}</div>
+            })}
         </div>
         </>
     )

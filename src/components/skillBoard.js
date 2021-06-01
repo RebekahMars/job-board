@@ -1,20 +1,26 @@
-import React, {useEffect, useState} from "react";
-import fetchSkillData from "./fetchSkillsData";
+import React from "react";
+//import fetchSkillData from "./fetchSkillsData.js";
 
 const SkillBoard = (props) => {
-    const [jobSkills, setJobSkills] = useState([]);
+   /*  const [jobSkills, setJobSkills] = useState([]);
 
     useEffect(()=>{
         (async ()=>{
            let skillResponse = await fetchSkillData(props.searchSkillTerm);
            setJobSkills(skillResponse);
         })()
-    },[props.searchSkillTerm]);
+    },[props.searchSkillTerm]); */
+
+    const toggleSelectedSkills = skill => {
+        console.log(skill);
+        let skills = [...props.selectedSkills, skill];
+        props.setSelectedSkills(skills);
+    }
 
     return (
         <div>
-        {jobSkills.map((skill, i)=> {
-            return <div key={i}>{skill.name}</div>
+        {props.jobSkills && props.jobSkills.map((skill, i)=> {
+            return <div key={i} onClick={()=>toggleSelectedSkills(skill)}>{skill.name}</div>
         })}
         </div>
     )
