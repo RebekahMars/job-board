@@ -1,8 +1,7 @@
 .App{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 25px;
-}
-.selected {
-    background-color: lightgrey;
+    text-align: center;
 }
